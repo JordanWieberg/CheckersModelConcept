@@ -1,0 +1,55 @@
+class Checker {
+    Fields: Color colorPiece;
+        boolean isKing;
+    
+    Constructor: Checker(colorPiece) //sets color for colorPiece and isKing to false
+    
+    Methods: getter/setter for isKing
+        getter for colorPiece
+}
+class Square {
+    Field: Checker checkerPiece; 
+    String tileNumber;
+    
+    Constructor: Square(checkerPiece, tileNumber) //sets checkerPiece on square or not and gives the square a tile number
+    
+    Method: isEmpty() //checks if checkerPiece is there or not
+}
+class Player {
+    Fields: String name;
+        Color colorSide;
+        enum(Human or Computer)?
+
+    Constructor: Player(colorSide) //sets color for colorSide and whether the player is Human or a Computer
+    
+    Methods: getter for colorSide, 
+        getter for name
+        getter for enum type
+}
+class Game {
+    Fields: Player darkPlayer;
+        Player lightPlayer;
+        Square board[][];
+        
+    Methods: buildBoard(board[][]); //builds the checkerboard
+        moveChecker(); //moves the checker piece 
+        moveValid(); //checks if checker move is valid (called in moveChecker)
+        canJump(); //checks if checker can jump opponent piece (called in moveChecker)
+        deleteChecker(); //deletes checker if it gets jumped by opponent's checker
+        switchPlayers(); //disables user's checkers for the next player's turn (dark will already be disabled at start)
+        lightWinner(); //checks if there are no dark pieces left
+        darkWinner(); //checks if there are no light pieces left
+        noWinner(); //checks if there are no possible moves which would make the game a draw
+}
+
+Possible Checkerboard Schema
+_________________________________________
+|_1a_|_1b_|_1c_|_1d_|_1e_|_1f_|_1g_|_1h_|
+|_2a_|_2b_|_2c_|_2d_|_2e_|_2f_|_2g_|_2h_|
+|_3a_|_3b_|_3c_|_3d_|_3e_|_3f_|_3g_|_3h_|
+|_4a_|_4b_|_4c_|_4d_|_4e_|_4f_|_4g_|_4h_|
+|_5a_|_5b_|_5c_|_5d_|_5e_|_5f_|_5g_|_5h_|
+|_6a_|_6b_|_6c_|_6d_|_6e_|_6f_|_6g_|_6h_|
+|_7a_|_7b_|_7c_|_7d_|_7e_|_7f_|_7g_|_7h_|
+|_8a_|_8b_|_8c_|_8d_|_8e_|_8f_|_8g_|_8h_|
+  
